@@ -16,7 +16,8 @@ namespace Soguba_Farms_Website_take_2
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            if ( Login1.UserName==Session["user"].ToString() && Login1.Password==Session["pass"].ToString()) {
+            if (Login1.UserName == Session["user"].ToString() && Login1.Password == Session["pass"].ToString())
+            {
                 Session["status"] = "go";
                 Response.Redirect("Pigs.aspx");
             }
