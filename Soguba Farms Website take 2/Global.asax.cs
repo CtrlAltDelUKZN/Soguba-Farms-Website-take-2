@@ -17,5 +17,10 @@ namespace Soguba_Farms_Website_take_2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        void Session_Start(object sender, EventArgs e) {
+            Session.Add("status","stop");
+            Session.Add("user","istn");
+            Session.Add("pass","abc");
+        }
     }
 }

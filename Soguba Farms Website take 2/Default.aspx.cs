@@ -11,7 +11,15 @@ namespace Soguba_Farms_Website_take_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+ 
+        }
 
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            if ( Login1.UserName==Session["user"].ToString() && Login1.Password==Session["pass"].ToString()) {
+                Session["status"] = "go";
+                Response.Redirect("Pigs.aspx");
+            }
         }
     }
 }

@@ -11,7 +11,9 @@ namespace Soguba_Farms_Website_take_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["status"].ToString() != "access granted") {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
