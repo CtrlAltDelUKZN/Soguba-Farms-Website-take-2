@@ -23,10 +23,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right">
+                                    <td align="right" style="height: 26px">
                                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" Font-Size="Small">Password:</asp:Label>
                                     </td>
-                                    <td>
+                                    <td style="height: 26px">
                                         <asp:TextBox ID="Password" runat="server" TextMode="Password" Font-Size="Medium"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                     </td>
