@@ -20,9 +20,6 @@ namespace Soguba_Farms_Website_take_2
 
 
         }
-        protected void cbSuccess_CheckedChanged(object sender, EventArgs e)
-        {
-            lblTest.Text = "Yes";
-        }
+
     }
 }

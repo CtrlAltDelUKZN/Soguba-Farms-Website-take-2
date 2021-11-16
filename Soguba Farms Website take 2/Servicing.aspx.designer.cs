@@ -15,6 +15,15 @@ namespace Soguba_Farms_Website_take_2
     {
 
         /// <summary>
+        /// lblServiceID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblServiceID;
+
+        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,31 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlCreateLitter;
 
         /// <summary>
-        /// lblTest control.
+        /// SqlGetLitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTest;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGetLitID;
+
+        /// <summary>
+        /// lblExpectedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExpectedDate;
+
+        /// <summary>
+        /// lblLitID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLitID;
 
         /// <summary>
         /// GridView1 control.
