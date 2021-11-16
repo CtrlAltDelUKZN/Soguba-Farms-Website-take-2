@@ -1,11 +1,27 @@
 ﻿<%@ Page Title="Servicing" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind=".aspx.cs" Inherits="Soguba_Farms_Website_take_2.Servicing" %>
 
+<script runat="server">
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        SqlWeaningData.Insert();
+    }
+</script>
+
+<script runat="server">
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        SqlWeaningData.Update();
+    }
+</script>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
   
     <div>
-        <asp:Button ID="btnAdd" runat="server" Text="Insert" />
-        <asp:Button ID="btnEdit" runat="server" Text="Update" />
+        <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
     </div>
 
@@ -29,7 +45,7 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlStaffID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [StaffID] FROM [Employees]"></asp:SqlDataSource>
 
-        <asp:CheckBox ID="cbSuccess" runat="server" Text="Success" OnCheckedChanged="cbSuccess_CheckedChanged" />
+        <asp:CheckBox ID="cbSuccess" runat="server" Text="Success" />
 
     </div>
             
@@ -118,7 +134,7 @@
             <InsertParameters>
                 <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter Name="StaffID" Type="Int32" />
+                <asp:ControlParameter Name="StaffID" Type="Int32" ControlID="ddlStaff" PropertyName="SelectedValue" />
                 <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
                 <asp:Parameter Name="LitterID" Type="Int32" />
                 <asp:Parameter Name="Successful" Type="Boolean" />
@@ -127,7 +143,7 @@
             <UpdateParameters>
                 <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter Name="StaffID" Type="Int32" />
+                <asp:ControlParameter Name="StaffID" Type="Int32" ControlID="ddlStaff" PropertyName="SelectedValue" />
                 <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
                 <asp:Parameter Name="LitterID" Type="Int32" />
                 <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
