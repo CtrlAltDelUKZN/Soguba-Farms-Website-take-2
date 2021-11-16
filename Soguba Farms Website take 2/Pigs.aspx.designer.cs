@@ -51,13 +51,13 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlPigDetails;
 
         /// <summary>
-        /// lblSex control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSex;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// rbSex control.
@@ -96,31 +96,31 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtCurrWeight;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlAccomodation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAccomodation;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlLitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLitter;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
         /// SqlDDLLitterID control.
@@ -132,13 +132,13 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDDLLitterID;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
         /// Pigs control.

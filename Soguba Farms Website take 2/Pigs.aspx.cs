@@ -32,5 +32,11 @@ namespace Soguba_Farms_Website_take_2
             txtCurrWeight.Text = currWeight;
 
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.Insert();
+
+        }
     }
 }
