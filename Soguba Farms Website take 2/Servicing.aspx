@@ -6,13 +6,21 @@
     {
         SqlWeaningData.Insert();
     }
-</script>
-
-<script runat="server">
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
+        if (cbSuccess.Checked)
+        {
+            SqlCreateLitter.Insert();
+            int litID = SqlGetLitID.Select();
+        }
         SqlWeaningData.Update();
+
+    }
+
+    protected void cbSuccess_CheckedChanged(object sender, EventArgs e)
+    {
+        
     }
 </script>
 
@@ -20,6 +28,7 @@
     <h2><%: Title %>.</h2>
   
     <div>
+        <asp:Label ID="lblServiceID" runat="server" Text="0"></asp:Label>
         <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
         <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
@@ -45,7 +54,7 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlStaffID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [StaffID] FROM [Employees]"></asp:SqlDataSource>
 
-        <asp:CheckBox ID="cbSuccess" runat="server" Text="Success" />
+        <asp:CheckBox ID="cbSuccess" runat="server" Text="Success" OnCheckedChanged="cbSuccess_CheckedChanged" AutoPostBack="True" />
 
     </div>
             
@@ -74,7 +83,7 @@
             <InsertParameters>
                 <asp:Parameter Name="LitterID" Type="Int32" />
                 <asp:Parameter Name="FarrowID" Type="Int32" />
-                <asp:Parameter Name="ServiceID" Type="Int32" />
+                <asp:ControlParameter ControlID="lblServiceID" Name="ServiceID" PropertyName="Text" Type="Int32" />
                 <asp:Parameter Name="CurrentAvgWeight" Type="Double" />
                 <asp:Parameter Name="NumberOfPiglets" Type="Int16" />
             </InsertParameters>
@@ -91,7 +100,14 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
+        <asp:SqlDataSource ID="SqlGetLitID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [LitterID] FROM [Litter] WHERE ([ServiceID] = @ServiceID)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblServiceID" Name="ServiceID" PropertyName="Text" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:Label ID="lblExpectedDate" runat="server"></asp:Label>
+
+        <asp:Label ID="lblLitID" runat="server"></asp:Label>
 
     </div>
 
@@ -145,9 +161,9 @@
                 <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter Name="StaffID" Type="Int32" ControlID="ddlStaff" PropertyName="SelectedValue" />
                 <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
-                <asp:Parameter Name="LitterID" Type="Int32" />
+                <asp:ControlParameter Name="LitterID" Type="Int32" />
                 <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
-                <asp:Parameter Name="ExpectedDate" DbType="Date" />
+                <asp:ControlParameter ControlID="lblExpectedDate" DbType="Date" Name="ExpectedDate" PropertyName="Text" />
                 <asp:Parameter Name="original_ServiceID" Type="Int32" />
                 <asp:Parameter Name="original_BoarID" Type="Int32" />
                 <asp:Parameter Name="original_SowID" Type="Int32" />
