@@ -13,5 +13,24 @@ namespace Soguba_Farms_Website_take_2
         {
 
         }
+
+        protected void Pigs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Male or Female Selection
+            if (Pigs.SelectedRow.Cells[2].Text.ToString().Contains("M"))
+            {
+                rbSex.SelectedIndex = 1;
+            }
+            else
+            {
+                rbSex.SelectedIndex = 0;
+            }
+            //Breed Switch Statement
+            string birthWeight = Pigs.SelectedRow.Cells[5].Text.ToString();
+            txtBirthWeight.Text = birthWeight;
+            string currWeight = Pigs.SelectedRow.Cells[6].Text.ToString();
+            txtCurrWeight.Text = currWeight;
+
+        }
     }
 }
