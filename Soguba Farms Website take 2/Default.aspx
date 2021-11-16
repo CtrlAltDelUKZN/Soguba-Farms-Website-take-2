@@ -1,7 +1,16 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Soguba_Farms_Website_take_2._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+
+         .backimg{
+
+
+ background-image:url(Img/background.png)}
+    </style>
     <div>
         <asp:Login ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop">
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
@@ -11,7 +20,7 @@
                         <td>
                             <table cellpadding="0">
                                 <tr>
-                                    <td align="center" colspan="2">Log In</td>
+                                    <td align="center" colspan="2">WELCOME</td>
                                 </tr>
                                 <tr>
                                     <td align="right">
@@ -60,7 +69,7 @@
     </div>
 
 
-   <div>
+   <div class="backimg">
 
 
    </div>
