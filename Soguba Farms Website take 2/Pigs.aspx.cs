@@ -17,5 +17,40 @@ namespace Soguba_Farms_Website_take_2
                 Response.Redirect("Default.aspx");
             }*/
         }
+
+        protected void Pigs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Male or Female Selection
+            if (Pigs.SelectedRow.Cells[2].Text.ToString().Contains("M"))
+            {
+                rbSex.SelectedIndex = 1;
+            }
+            else
+            {
+                rbSex.SelectedIndex = 0;
+            }
+            //Breed Switch Statement
+
+            //Calender
+           string date = Pigs.SelectedRow.Cells[4].Text.ToString();
+            lblDate.Text = date;
+           Calendar1.SelectedDate = Convert.ToDateTime(date);
+
+            string birthWeight = Pigs.SelectedRow.Cells[5].Text.ToString();
+            txtBirthWeight.Text = birthWeight;
+            string currWeight = Pigs.SelectedRow.Cells[6].Text.ToString();
+            txtCurrWeight.Text = currWeight;
+
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.Insert();
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.Update();
+        }
     }
 }
