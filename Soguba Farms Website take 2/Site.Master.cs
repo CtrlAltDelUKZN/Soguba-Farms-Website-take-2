@@ -11,7 +11,11 @@ namespace Soguba_Farms_Website_take_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["status"] = "stop";
+            
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e) {
+            Response.Redirect("Pigs.aspx");
         }
     }
 }

@@ -10,10 +10,12 @@ namespace Soguba_Farms_Website_take_2
     public partial class Contact : Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["status"].ToString() != "go") {
+        {/*
+            if (Session["status"].ToString() != "go")
+            {
+               
                 Response.Redirect("Default.aspx");
-            }
+            }*/
         }
     }
 }

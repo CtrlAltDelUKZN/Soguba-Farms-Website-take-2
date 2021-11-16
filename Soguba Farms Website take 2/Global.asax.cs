@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.UI.WebControls;
 
 namespace Soguba_Farms_Website_take_2
 {
@@ -19,8 +20,9 @@ namespace Soguba_Farms_Website_take_2
         }
         void Session_Start(object sender, EventArgs e) {
             Session.Add("status","stop");
-            Session.Add("user","istn");
-            Session.Add("pass","abc");
+           
         }
+ 
+
     }
 }
