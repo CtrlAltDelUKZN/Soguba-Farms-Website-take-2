@@ -20,7 +20,11 @@ namespace Soguba_Farms_Website_take_2
         }
         void Session_Start(object sender, EventArgs e) {
             Session.Add("status","stop");
-           
+
+            Session.Add("username", "");
+            Session.Add("password", "");
+            Session.Add("position", "");
+         
         }
  
 

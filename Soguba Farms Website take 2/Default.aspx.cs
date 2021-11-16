@@ -38,13 +38,18 @@ namespace Soguba_Farms_Website_take_2
 
                             Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
                             Session["username"] = dr.GetValue(1).ToString();
+                            Session["password"] = dr.GetValue(2).ToString();
                             Session["position"] = dr.GetValue(3).ToString();
-                            if (dr.GetValue(3).ToString() == "Administrator")
+                            if (Session["username"].ToString() == Login1.UserName.ToString().Trim() && Session["password"].ToString() == Login1.Password.ToString().Trim())
                             {
-                                Session["status"] = "go";
-                                Response.Redirect("Pigs.aspx");
+                                if (Session["position"].ToString() == "Administrator")
+                                {
+                                    Session["status"] = "go";
+                                }
+                                Response.Redirect("Notifications.aspx");
                             }
-                             
+                            
+   
                         }
                         
                     }
