@@ -12,7 +12,7 @@
 
     <div style ="width: 50%; float: left; ">
 
-        <asp:Button ID="btnUpdate" runat="server" BorderStyle="Outset" Text="Edit" />
+        <asp:Button ID="btnUpdate" runat="server" BorderStyle="Outset" Text="Edit" OnClick="btnUpdate_Click" />
 
     </div>
 
@@ -84,21 +84,21 @@
             <asp:ControlParameter ControlID="ddlStatus" Name="CauseOfDeath" PropertyName="SelectedValue" Type="String" />
         </InsertParameters>
         <UpdateParameters>
-            <asp:Parameter Name="Sex" Type="String" />
-            <asp:Parameter Name="Breed" Type="String" />
-            <asp:Parameter DbType="Date" Name="DateofBirth" />
+            <asp:ControlParameter ControlID="rbSex" Name="Sex" PropertyName="SelectedValue" Type="String" />
+            <asp:ControlParameter ControlID="ddlBreed" Name="Breed" PropertyName="SelectedValue" Type="String" />
+            <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="DateofBirth" PropertyName="SelectedDate" />
             <asp:Parameter Name="Age" Type="Int32" />
-            <asp:Parameter Name="BirthWeight" Type="Double" />
-            <asp:Parameter Name="CurrentWeight" Type="Double" />
-            <asp:Parameter Name="Accommodation" Type="String" />
+            <asp:ControlParameter ControlID="txtBirthWeight" Name="BirthWeight" PropertyName="Text" Type="Double" />
+            <asp:ControlParameter ControlID="txtCurrWeight" Name="CurrentWeight" PropertyName="Text" Type="Double" />
+            <asp:ControlParameter ControlID="ddlAccomodation" Name="Accommodation" PropertyName="SelectedValue" Type="String" />
             <asp:Parameter Name="SowAvgNumPigsPerLit" Type="Double" />
             <asp:Parameter Name="SowAvgLitterWeight" Type="Double" />
             <asp:Parameter Name="SowNumFarrows" Type="Int32" />
             <asp:Parameter Name="SowNumMiscarriages" Type="Int32" />
             <asp:Parameter Name="SowPregnant" Type="Boolean" />
             <asp:Parameter Name="BoarNumServices" Type="Int32" />
-            <asp:Parameter Name="LitterID" Type="Int32" />
-            <asp:Parameter Name="CauseOfDeath" Type="String" />
+            <asp:ControlParameter ControlID="ddlLitter" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="ddlStatus" Name="CauseOfDeath" PropertyName="SelectedValue" Type="String" />
             <asp:Parameter Name="original_PigID" Type="Int32" />
             <asp:Parameter Name="original_Sex" Type="String" />
             <asp:Parameter Name="original_Breed" Type="String" />
@@ -128,15 +128,15 @@
             <asp:ListItem Value="M">Male</asp:ListItem>
         </asp:RadioButtonList>
         <asp:DropDownList ID="ddlBreed" runat="server">
-            <asp:ListItem>B25</asp:ListItem>
-            <asp:ListItem>D15</asp:ListItem>
+            <asp:ListItem>B35</asp:ListItem>
+            <asp:ListItem>D25</asp:ListItem>
             <asp:ListItem>A6</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="txtBirthWeight" runat="server"></asp:TextBox>
         <asp:TextBox ID="txtCurrWeight" runat="server"></asp:TextBox>
         <asp:DropDownList ID="ddlAccomodation" runat="server">
-            <asp:ListItem>BirthingHouse</asp:ListItem>
-            <asp:ListItem>BreedingHouse</asp:ListItem>
+            <asp:ListItem>Birthing House</asp:ListItem>
+            <asp:ListItem>Breeding Shelter</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlLitter" runat="server" DataSourceID="SqlDDLLitterID" DataTextField="LitterID" DataValueField="LitterID">
         </asp:DropDownList>
@@ -149,9 +149,10 @@
 
     </div>
 
-    <div style ="width: 30%; float: left; height: 192px;">
+    <div style ="width: 40%; float: right; height: 192px;">
 
-        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="189px" NextPrevFormat="ShortMonth" Width="413px">
+        <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="149px" NextPrevFormat="ShortMonth" Width="413px">
             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
             <DayStyle BackColor="#CCCCCC" />
             <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />

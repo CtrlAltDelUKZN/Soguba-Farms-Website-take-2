@@ -26,6 +26,12 @@ namespace Soguba_Farms_Website_take_2
                 rbSex.SelectedIndex = 0;
             }
             //Breed Switch Statement
+
+            //Calender
+           string date = Pigs.SelectedRow.Cells[4].Text.ToString();
+            lblDate.Text = date;
+           Calendar1.SelectedDate = Convert.ToDateTime(date);
+
             string birthWeight = Pigs.SelectedRow.Cells[5].Text.ToString();
             txtBirthWeight.Text = birthWeight;
             string currWeight = Pigs.SelectedRow.Cells[6].Text.ToString();
@@ -36,7 +42,11 @@ namespace Soguba_Farms_Website_take_2
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             SqlDataSource1.Insert();
+        }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.Update();
         }
     }
 }
