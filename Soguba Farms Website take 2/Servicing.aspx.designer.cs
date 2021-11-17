@@ -123,13 +123,13 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// SqlCreateLitter control.
+        /// SQLCreateLitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlCreateLitter;
+        protected global::System.Web.UI.WebControls.SqlDataSource SQLCreateLitter;
 
         /// <summary>
         /// SqlGetLitID control.
@@ -141,22 +141,22 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlGetLitID;
 
         /// <summary>
-        /// lblExpectedDate control.
+        /// ddlLitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExpectedDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLitID;
 
         /// <summary>
-        /// lblLitID control.
+        /// Calendar2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLitID;
+        protected global::System.Web.UI.WebControls.Calendar Calendar2;
 
         /// <summary>
         /// GridView1 control.
@@ -168,12 +168,12 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// SqlWeaningData control.
+        /// SqlServicingData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlWeaningData;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlServicingData;
     }
 }

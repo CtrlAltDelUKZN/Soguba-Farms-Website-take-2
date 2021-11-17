@@ -4,23 +4,32 @@
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        SqlWeaningData.Insert();
+        SqlServicingData.Insert();
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         if (cbSuccess.Checked)
         {
-            SqlCreateLitter.Insert();
-            int litID = SqlGetLitID.Select();
+            SQLCreateLitter.Insert();
         }
-        SqlWeaningData.Update();
-
+        SqlServicingData.Update();
     }
 
     protected void cbSuccess_CheckedChanged(object sender, EventArgs e)
     {
-        
+
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        lblServiceID.Text = GridView1.SelectedRow.Cells[1].Text;
+        Calendar2.SelectedDate = Calendar1.SelectedDate.AddDays(114);
+    }
+
+    protected void SqlGetLitID_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
     }
 </script>
 
@@ -72,7 +81,7 @@
 
     <div style ="width: 25%; float: left; ">
 
-        <asp:SqlDataSource ID="SqlCreateLitter" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Litter] WHERE [LitterID] = @original_LitterID AND (([FarrowID] = @original_FarrowID) OR ([FarrowID] IS NULL AND @original_FarrowID IS NULL)) AND (([ServiceID] = @original_ServiceID) OR ([ServiceID] IS NULL AND @original_ServiceID IS NULL)) AND [CurrentAvgWeight] = @original_CurrentAvgWeight AND [NumberOfPiglets] = @original_NumberOfPiglets" InsertCommand="INSERT INTO [Litter] ([LitterID], [FarrowID], [ServiceID], [CurrentAvgWeight], [NumberOfPiglets]) VALUES (@LitterID, @FarrowID, @ServiceID, @CurrentAvgWeight, @NumberOfPiglets)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Litter]" UpdateCommand="UPDATE [Litter] SET [FarrowID] = @FarrowID, [ServiceID] = @ServiceID, [CurrentAvgWeight] = @CurrentAvgWeight, [NumberOfPiglets] = @NumberOfPiglets WHERE [LitterID] = @original_LitterID AND (([FarrowID] = @original_FarrowID) OR ([FarrowID] IS NULL AND @original_FarrowID IS NULL)) AND (([ServiceID] = @original_ServiceID) OR ([ServiceID] IS NULL AND @original_ServiceID IS NULL)) AND [CurrentAvgWeight] = @original_CurrentAvgWeight AND [NumberOfPiglets] = @original_NumberOfPiglets">
+        <asp:SqlDataSource ID="SQLCreateLitter" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Litter] WHERE [LitterID] = @original_LitterID AND (([FarrowID] = @original_FarrowID) OR ([FarrowID] IS NULL AND @original_FarrowID IS NULL)) AND (([ServiceID] = @original_ServiceID) OR ([ServiceID] IS NULL AND @original_ServiceID IS NULL)) AND [CurrentAvgWeight] = @original_CurrentAvgWeight AND [NumberOfPiglets] = @original_NumberOfPiglets" InsertCommand="INSERT INTO [Litter] ([FarrowID], [ServiceID], [CurrentAvgWeight], [NumberOfPiglets]) VALUES (@FarrowID, @ServiceID, @CurrentAvgWeight, @NumberOfPiglets)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Litter]" UpdateCommand="UPDATE [Litter] SET [FarrowID] = @FarrowID, [ServiceID] = @ServiceID, [CurrentAvgWeight] = @CurrentAvgWeight, [NumberOfPiglets] = @NumberOfPiglets WHERE [LitterID] = @original_LitterID AND (([FarrowID] = @original_FarrowID) OR ([FarrowID] IS NULL AND @original_FarrowID IS NULL)) AND (([ServiceID] = @original_ServiceID) OR ([ServiceID] IS NULL AND @original_ServiceID IS NULL)) AND [CurrentAvgWeight] = @original_CurrentAvgWeight AND [NumberOfPiglets] = @original_NumberOfPiglets">
             <DeleteParameters>
                 <asp:Parameter Name="original_LitterID" Type="Int32" />
                 <asp:Parameter Name="original_FarrowID" Type="Int32" />
@@ -81,11 +90,10 @@
                 <asp:Parameter Name="original_NumberOfPiglets" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="LitterID" Type="Int32" />
                 <asp:Parameter Name="FarrowID" Type="Int32" />
                 <asp:ControlParameter ControlID="lblServiceID" Name="ServiceID" PropertyName="Text" Type="Int32" />
-                <asp:Parameter Name="CurrentAvgWeight" Type="Double" />
-                <asp:Parameter Name="NumberOfPiglets" Type="Int16" />
+                <asp:Parameter DefaultValue="0" Name="CurrentAvgWeight" Type="Double" />
+                <asp:Parameter DefaultValue="0" Name="NumberOfPiglets" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="FarrowID" Type="Int32" />
@@ -105,14 +113,15 @@
                 <asp:ControlParameter ControlID="lblServiceID" Name="ServiceID" PropertyName="Text" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Label ID="lblExpectedDate" runat="server"></asp:Label>
+        <asp:DropDownList ID="ddlLitID" runat="server" DataSourceID="SqlGetLitID" AutoPostBack="True" DataTextField="LitterID" Visible="False">
+        </asp:DropDownList>
 
-        <asp:Label ID="lblLitID" runat="server"></asp:Label>
+        <asp:Calendar ID="Calendar2" runat="server" Visible="False"></asp:Calendar>
 
     </div>
 
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ServiceID" DataSourceID="SqlWeaningData" ForeColor="#333333" GridLines="None" Width="734px" AllowPaging="True" AllowSorting="True">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ServiceID" DataSourceID="SqlServicingData" ForeColor="#333333" GridLines="None" Width="734px" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
@@ -136,7 +145,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlWeaningData" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [LitterID], [Successful], [ExpectedDate]) VALUES (@BoarID, @SowID, @StaffID, @Date, @LitterID, @Successful, @ExpectedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE [Servicing] SET [BoarID] = @BoarID, [SowID] = @SowID, [StaffID] = @StaffID, [Date] = @Date, [LitterID] = @LitterID, [Successful] = @Successful, [ExpectedDate] = @ExpectedDate WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))">
+        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [LitterID], [Successful], [ExpectedDate]) VALUES (@BoarID, @SowID, @StaffID, @Date, @LitterID, @Successful, @ExpectedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
             <DeleteParameters>
                 <asp:Parameter Name="original_ServiceID" Type="Int32" />
                 <asp:Parameter Name="original_BoarID" Type="Int32" />
@@ -150,28 +159,19 @@
             <InsertParameters>
                 <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter Name="StaffID" Type="Int32" ControlID="ddlStaff" PropertyName="SelectedValue" />
+                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
-                <asp:Parameter Name="LitterID" Type="Int32" />
-                <asp:Parameter Name="Successful" Type="Boolean" />
-                <asp:Parameter DbType="Date" Name="ExpectedDate" />
+                <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" DefaultValue="" />
                 <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter Name="StaffID" Type="Int32" ControlID="ddlStaff" PropertyName="SelectedValue" />
-                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
-                <asp:ControlParameter Name="LitterID" Type="Int32" />
-                <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
-                <asp:ControlParameter ControlID="lblExpectedDate" DbType="Date" Name="ExpectedDate" PropertyName="Text" />
-                <asp:Parameter Name="original_ServiceID" Type="Int32" />
-                <asp:Parameter Name="original_BoarID" Type="Int32" />
-                <asp:Parameter Name="original_SowID" Type="Int32" />
-                <asp:Parameter Name="original_StaffID" Type="Int32" />
-                <asp:Parameter DbType="Date" Name="original_Date" />
-                <asp:Parameter Name="original_LitterID" Type="Int32" />
-                <asp:Parameter Name="original_Successful" Type="Boolean" />
-                <asp:Parameter DbType="Date" Name="original_ExpectedDate" />
+                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" DefaultValue="" />
+                <asp:ControlParameter ControlID="ddlLitID" DefaultValue="0" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="" Name="Successful" PropertyName="Checked" Type="Boolean" />
+                <asp:ControlParameter ControlID="Calendar2" DbType="Date" Name="ExpectedDate" PropertyName="SelectedDate" DefaultValue="" />
+                <asp:ControlParameter ControlID="lblServiceID" Name="original_ServiceID" PropertyName="Text" />
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>

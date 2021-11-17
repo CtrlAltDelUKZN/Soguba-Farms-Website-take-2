@@ -11,152 +11,107 @@ namespace Soguba_Farms_Website_take_2
 {
 
 
-    public partial class Contact
+    public partial class Vaccinations
     {
 
         /// <summary>
-        /// btnAdd control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// txtSearch control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// btnUpdate control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// DetailsView1 control.
+        /// lblFarrowID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
+        protected global::System.Web.UI.WebControls.Label lblFarrowID;
 
         /// <summary>
-        /// SqlPigDetails control.
+        /// ddlLitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlPigDetails;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLitID;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// SqlLitD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlLitD;
 
         /// <summary>
-        /// SqlPigData control.
+        /// txtWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlPigData;
+        protected global::System.Web.UI.WebControls.TextBox txtWeight;
 
         /// <summary>
-        /// rbSex control.
+        /// txtLive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbSex;
+        protected global::System.Web.UI.WebControls.TextBox txtLive;
 
         /// <summary>
-        /// ddlBreed control.
+        /// txtStill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBreed;
+        protected global::System.Web.UI.WebControls.TextBox txtStill;
 
         /// <summary>
-        /// txtBirthWeight control.
+        /// txtWeak control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBirthWeight;
+        protected global::System.Web.UI.WebControls.TextBox txtWeak;
 
         /// <summary>
-        /// txtCurrWeight control.
+        /// txtMummified control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrWeight;
-
-        /// <summary>
-        /// ddlAccomodation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAccomodation;
-
-        /// <summary>
-        /// ddlLitter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLitter;
-
-        /// <summary>
-        /// ddlStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
-
-        /// <summary>
-        /// SqlDDLLitterID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDLLitterID;
-
-        /// <summary>
-        /// lblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.TextBox txtMummified;
 
         /// <summary>
         /// Calendar1 control.
@@ -168,12 +123,21 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// Pigs control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Pigs;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlFarrowing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlFarrowing;
     }
 }

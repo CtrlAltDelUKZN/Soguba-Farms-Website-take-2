@@ -54,7 +54,7 @@
                         <li><a runat="server" href="~/Notifications">Notifications</a></li>
                         <li><a runat="server" href="~/Pigs">Pigs</a></li>
                         <li><a runat="server" href="~/Weaning">Weaning</a></li>
-                        <li><a runat="server" href="~/Vaccinations">Vaccinations</a></li>
+                        <li><a runat="server" href="~/Farrowing">Farrowing</a></li>
                         <li><a runat="server" href="~/Servicing">Servicing</a></li>
                         
                     </ul>

@@ -242,7 +242,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Servicing.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="Vaccinations.aspx" />
+    <Content Include="Farrowing.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Weaning.aspx" />
     <None Include="Web.config" />
@@ -305,12 +305,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Vaccinations.aspx.cs">
-      <DependentUpon>Vaccinations.aspx</DependentUpon>
+    <Compile Include="Farrowing.aspx.cs">
+      <DependentUpon>Farrowing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vaccinations.aspx.designer.cs">
-      <DependentUpon>Vaccinations.aspx</DependentUpon>
+    <Compile Include="Farrowing.aspx.designer.cs">
+      <DependentUpon>Farrowing.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
