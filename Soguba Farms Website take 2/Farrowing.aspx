@@ -6,7 +6,7 @@
     <div style ="width: 45%; float: left; ">
         <asp:Button ID="Button1" runat="server" Text="Button" />
         <asp:Button ID="Button2" runat="server" Text="Button" />
-        <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True"></asp:TextBox>
+        <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True"></asp:TextBox>
     </div>
 
     <div></div>
@@ -52,7 +52,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlFarrowing" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Farrowing] WHERE [FarrowID] = @original_FarrowID AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [AverageWeight] = @original_AverageWeight AND [Date] = @original_Date AND [LiveBorn] = @original_LiveBorn AND [StillBorn] = @original_StillBorn AND [WeakBorn] = @original_WeakBorn AND [Mummified] = @original_Mummified" InsertCommand="INSERT INTO [Farrowing] ([LitterID], [AverageWeight], [Date], [LiveBorn], [StillBorn], [WeakBorn], [Mummified]) VALUES (@LitterID, @AverageWeight, @Date, @LiveBorn, @StillBorn, @WeakBorn, @Mummified)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM Farrowing" UpdateCommand="UPDATE [Farrowing] SET [LitterID] = @LitterID, [AverageWeight] = @AverageWeight, [Date] = @Date, [LiveBorn] = @LiveBorn, [StillBorn] = @StillBorn, [WeakBorn] = @WeakBorn, [Mummified] = @Mummified WHERE [FarrowID] = @original_FarrowID AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [AverageWeight] = @original_AverageWeight AND [Date] = @original_Date AND [LiveBorn] = @original_LiveBorn AND [StillBorn] = @original_StillBorn AND [WeakBorn] = @original_WeakBorn AND [Mummified] = @original_Mummified">
+        <asp:SqlDataSource ID="SqlFarrowing" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Farrowing] WHERE [FarrowID] = @original_FarrowID AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [AverageWeight] = @original_AverageWeight AND [Date] = @original_Date AND [LiveBorn] = @original_LiveBorn AND [StillBorn] = @original_StillBorn AND [WeakBorn] = @original_WeakBorn AND [Mummified] = @original_Mummified" InsertCommand="INSERT INTO [Farrowing] ([LitterID], [AverageWeight], [Date], [LiveBorn], [StillBorn], [WeakBorn], [Mummified]) VALUES (@LitterID, @AverageWeight, @Date, @LiveBorn, @StillBorn, @WeakBorn, @Mummified)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM Farrowing" UpdateCommand="UPDATE [Farrowing] SET [LitterID] = @LitterID, [AverageWeight] = @AverageWeight, [Date] = @Date, [LiveBorn] = @LiveBorn, [StillBorn] = @StillBorn, [WeakBorn] = @WeakBorn, [Mummified] = @Mummified WHERE [FarrowID] = @original_FarrowID">
             <DeleteParameters>
                 <asp:Parameter Name="original_FarrowID" Type="Int32" />
                 <asp:Parameter Name="original_LitterID" Type="Int32" />
@@ -64,23 +64,23 @@
                 <asp:Parameter Name="original_Mummified" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="LitterID" Type="Int32" />
-                <asp:Parameter Name="AverageWeight" Type="Double" />
-                <asp:Parameter DbType="Date" Name="Date" />
-                <asp:Parameter Name="LiveBorn" Type="Int16" />
-                <asp:Parameter Name="StillBorn" Type="Int16" />
-                <asp:Parameter Name="WeakBorn" Type="Int16" />
-                <asp:Parameter Name="Mummified" Type="Int16" />
+                <asp:ControlParameter ControlID="ddlLitID" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="txtWeight" Name="AverageWeight" PropertyName="Text" Type="Double" />
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:ControlParameter ControlID="txtLive" Name="LiveBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtStill" Name="StillBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtWeak" Name="WeakBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtMummified" Name="Mummified" PropertyName="Text" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="LitterID" Type="Int32" />
-                <asp:Parameter Name="AverageWeight" Type="Double" />
-                <asp:Parameter DbType="Date" Name="Date" />
-                <asp:Parameter Name="LiveBorn" Type="Int16" />
-                <asp:Parameter Name="StillBorn" Type="Int16" />
-                <asp:Parameter Name="WeakBorn" Type="Int16" />
-                <asp:Parameter Name="Mummified" Type="Int16" />
-                <asp:Parameter Name="original_FarrowID" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlLitID" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="txtWeight" Name="AverageWeight" PropertyName="Text" Type="Double" />
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:ControlParameter ControlID="txtLive" Name="LiveBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtStill" Name="StillBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtWeak" Name="WeakBorn" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="txtMummified" Name="Mummified" PropertyName="Text" Type="Int16" />
+                <asp:ControlParameter ControlID="lblFarrowID" Name="original_FarrowID" PropertyName="Text" Type="Int32" />
                 <asp:Parameter Name="original_LitterID" Type="Int32" />
                 <asp:Parameter Name="original_AverageWeight" Type="Double" />
                 <asp:Parameter DbType="Date" Name="original_Date" />
