@@ -21,6 +21,7 @@ namespace Soguba_Farms_Website_take_2
             if (Session["Username"] != null && Session["Pass"] != null)
             {
                 Session.Abandon();
+               
             }
         }
 

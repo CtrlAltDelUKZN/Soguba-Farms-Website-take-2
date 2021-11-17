@@ -25,16 +25,19 @@ namespace Soguba_Farms_Website_take_2
             else if (Session["Pass"].ToString() != "") {
                 LinkButton3.Text = " Hello " + Session["Username"].ToString();
                 Button1.Visible = true;
+               
             }
             
         }
        
-        protected void Button1_Click(object sender, EventArgs e) {
+        
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {/*
             Response.Redirect("Default.aspx");
             Session.Abandon();
+            Button1.Visible = false;*/
         }
-
- 
     }
 
 }
