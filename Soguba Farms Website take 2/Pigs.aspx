@@ -8,6 +8,8 @@
 
         <asp:Button ID="btnAdd" runat="server" BorderStyle="Outset" Text="Insert" OnClick="btnAdd_Click" />
 
+        <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True"></asp:TextBox>
+
     </div>
 
     <div style ="width: 50%; float: left; ">
@@ -119,6 +121,81 @@
     </asp:SqlDataSource>
 
  
+        <asp:SqlDataSource ID="SqlPigData" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Pig] WHERE [PigID] = @original_PigID AND [Sex] = @original_Sex AND [Breed] = @original_Breed AND [DateofBirth] = @original_DateofBirth AND (([Age] = @original_Age) OR ([Age] IS NULL AND @original_Age IS NULL)) AND [BirthWeight] = @original_BirthWeight AND [CurrentWeight] = @original_CurrentWeight AND [Accommodation] = @original_Accommodation AND (([SowAvgNumPigsPerLit] = @original_SowAvgNumPigsPerLit) OR ([SowAvgNumPigsPerLit] IS NULL AND @original_SowAvgNumPigsPerLit IS NULL)) AND (([SowAvgLitterWeight] = @original_SowAvgLitterWeight) OR ([SowAvgLitterWeight] IS NULL AND @original_SowAvgLitterWeight IS NULL)) AND (([SowNumFarrows] = @original_SowNumFarrows) OR ([SowNumFarrows] IS NULL AND @original_SowNumFarrows IS NULL)) AND (([SowNumMiscarriages] = @original_SowNumMiscarriages) OR ([SowNumMiscarriages] IS NULL AND @original_SowNumMiscarriages IS NULL)) AND (([SowPregnant] = @original_SowPregnant) OR ([SowPregnant] IS NULL AND @original_SowPregnant IS NULL)) AND (([BoarNumServices] = @original_BoarNumServices) OR ([BoarNumServices] IS NULL AND @original_BoarNumServices IS NULL)) AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND (([CauseOfDeath] = @original_CauseOfDeath) OR ([CauseOfDeath] IS NULL AND @original_CauseOfDeath IS NULL))" InsertCommand="INSERT INTO [Pig] ([Sex], [Breed], [DateofBirth], [Age], [BirthWeight], [CurrentWeight], [Accommodation], [SowAvgNumPigsPerLit], [SowAvgLitterWeight], [SowNumFarrows], [SowNumMiscarriages], [SowPregnant], [BoarNumServices], [LitterID], [CauseOfDeath]) VALUES (@Sex, @Breed, @DateofBirth, @Age, @BirthWeight, @CurrentWeight, @Accommodation, @SowAvgNumPigsPerLit, @SowAvgLitterWeight, @SowNumFarrows, @SowNumMiscarriages, @SowPregnant, @BoarNumServices, @LitterID, @CauseOfDeath)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Pig] WHERE ([PigID] = @PigID)" UpdateCommand="UPDATE [Pig] SET [Sex] = @Sex, [Breed] = @Breed, [DateofBirth] = @DateofBirth, [Age] = @Age, [BirthWeight] = @BirthWeight, [CurrentWeight] = @CurrentWeight, [Accommodation] = @Accommodation, [SowAvgNumPigsPerLit] = @SowAvgNumPigsPerLit, [SowAvgLitterWeight] = @SowAvgLitterWeight, [SowNumFarrows] = @SowNumFarrows, [SowNumMiscarriages] = @SowNumMiscarriages, [SowPregnant] = @SowPregnant, [BoarNumServices] = @BoarNumServices, [LitterID] = @LitterID, [CauseOfDeath] = @CauseOfDeath WHERE [PigID] = @original_PigID AND [Sex] = @original_Sex AND [Breed] = @original_Breed AND [DateofBirth] = @original_DateofBirth AND (([Age] = @original_Age) OR ([Age] IS NULL AND @original_Age IS NULL)) AND [BirthWeight] = @original_BirthWeight AND [CurrentWeight] = @original_CurrentWeight AND [Accommodation] = @original_Accommodation AND (([SowAvgNumPigsPerLit] = @original_SowAvgNumPigsPerLit) OR ([SowAvgNumPigsPerLit] IS NULL AND @original_SowAvgNumPigsPerLit IS NULL)) AND (([SowAvgLitterWeight] = @original_SowAvgLitterWeight) OR ([SowAvgLitterWeight] IS NULL AND @original_SowAvgLitterWeight IS NULL)) AND (([SowNumFarrows] = @original_SowNumFarrows) OR ([SowNumFarrows] IS NULL AND @original_SowNumFarrows IS NULL)) AND (([SowNumMiscarriages] = @original_SowNumMiscarriages) OR ([SowNumMiscarriages] IS NULL AND @original_SowNumMiscarriages IS NULL)) AND (([SowPregnant] = @original_SowPregnant) OR ([SowPregnant] IS NULL AND @original_SowPregnant IS NULL)) AND (([BoarNumServices] = @original_BoarNumServices) OR ([BoarNumServices] IS NULL AND @original_BoarNumServices IS NULL)) AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND (([CauseOfDeath] = @original_CauseOfDeath) OR ([CauseOfDeath] IS NULL AND @original_CauseOfDeath IS NULL))">
+            <DeleteParameters>
+                <asp:Parameter Name="original_PigID" Type="Int32" />
+                <asp:Parameter Name="original_Sex" Type="String" />
+                <asp:Parameter Name="original_Breed" Type="String" />
+                <asp:Parameter DbType="Date" Name="original_DateofBirth" />
+                <asp:Parameter Name="original_Age" Type="Int32" />
+                <asp:Parameter Name="original_BirthWeight" Type="Double" />
+                <asp:Parameter Name="original_CurrentWeight" Type="Double" />
+                <asp:Parameter Name="original_Accommodation" Type="String" />
+                <asp:Parameter Name="original_SowAvgNumPigsPerLit" Type="Double" />
+                <asp:Parameter Name="original_SowAvgLitterWeight" Type="Double" />
+                <asp:Parameter Name="original_SowNumFarrows" Type="Int32" />
+                <asp:Parameter Name="original_SowNumMiscarriages" Type="Int32" />
+                <asp:Parameter Name="original_SowPregnant" Type="Boolean" />
+                <asp:Parameter Name="original_BoarNumServices" Type="Int32" />
+                <asp:Parameter Name="original_LitterID" Type="Int32" />
+                <asp:Parameter Name="original_CauseOfDeath" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Sex" Type="String" />
+                <asp:Parameter Name="Breed" Type="String" />
+                <asp:Parameter DbType="Date" Name="DateofBirth" />
+                <asp:Parameter Name="Age" Type="Int32" />
+                <asp:Parameter Name="BirthWeight" Type="Double" />
+                <asp:Parameter Name="CurrentWeight" Type="Double" />
+                <asp:Parameter Name="Accommodation" Type="String" />
+                <asp:Parameter Name="SowAvgNumPigsPerLit" Type="Double" />
+                <asp:Parameter Name="SowAvgLitterWeight" Type="Double" />
+                <asp:Parameter Name="SowNumFarrows" Type="Int32" />
+                <asp:Parameter Name="SowNumMiscarriages" Type="Int32" />
+                <asp:Parameter Name="SowPregnant" Type="Boolean" />
+                <asp:Parameter Name="BoarNumServices" Type="Int32" />
+                <asp:Parameter Name="LitterID" Type="Int32" />
+                <asp:Parameter Name="CauseOfDeath" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="txtSearch" Name="PigID" PropertyName="Text" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Sex" Type="String" />
+                <asp:Parameter Name="Breed" Type="String" />
+                <asp:Parameter DbType="Date" Name="DateofBirth" />
+                <asp:Parameter Name="Age" Type="Int32" />
+                <asp:Parameter Name="BirthWeight" Type="Double" />
+                <asp:Parameter Name="CurrentWeight" Type="Double" />
+                <asp:Parameter Name="Accommodation" Type="String" />
+                <asp:Parameter Name="SowAvgNumPigsPerLit" Type="Double" />
+                <asp:Parameter Name="SowAvgLitterWeight" Type="Double" />
+                <asp:Parameter Name="SowNumFarrows" Type="Int32" />
+                <asp:Parameter Name="SowNumMiscarriages" Type="Int32" />
+                <asp:Parameter Name="SowPregnant" Type="Boolean" />
+                <asp:Parameter Name="BoarNumServices" Type="Int32" />
+                <asp:Parameter Name="LitterID" Type="Int32" />
+                <asp:Parameter Name="CauseOfDeath" Type="String" />
+                <asp:Parameter Name="original_PigID" Type="Int32" />
+                <asp:Parameter Name="original_Sex" Type="String" />
+                <asp:Parameter Name="original_Breed" Type="String" />
+                <asp:Parameter DbType="Date" Name="original_DateofBirth" />
+                <asp:Parameter Name="original_Age" Type="Int32" />
+                <asp:Parameter Name="original_BirthWeight" Type="Double" />
+                <asp:Parameter Name="original_CurrentWeight" Type="Double" />
+                <asp:Parameter Name="original_Accommodation" Type="String" />
+                <asp:Parameter Name="original_SowAvgNumPigsPerLit" Type="Double" />
+                <asp:Parameter Name="original_SowAvgLitterWeight" Type="Double" />
+                <asp:Parameter Name="original_SowNumFarrows" Type="Int32" />
+                <asp:Parameter Name="original_SowNumMiscarriages" Type="Int32" />
+                <asp:Parameter Name="original_SowPregnant" Type="Boolean" />
+                <asp:Parameter Name="original_BoarNumServices" Type="Int32" />
+                <asp:Parameter Name="original_LitterID" Type="Int32" />
+                <asp:Parameter Name="original_CauseOfDeath" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+ 
     </div>
 
     <div style ="width: 10%; float: left; height: 198px;">
@@ -168,11 +245,11 @@
     <asp:GridView ID = "Pigs" runat = "server" AutoGenerateColumns="False" DataKeyNames="PigID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1263px" OnSelectedIndexChanged="Pigs_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="PigID" HeaderText="PigID" InsertVisible="False" ReadOnly="True" SortExpression="PigID" />
             <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
             <asp:BoundField DataField="Breed" HeaderText="Breed" SortExpression="Breed" />
             <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" />
+            <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
             <asp:BoundField DataField="BirthWeight" HeaderText="BirthWeight" SortExpression="BirthWeight" />
             <asp:BoundField DataField="CurrentWeight" HeaderText="CurrentWeight" SortExpression="CurrentWeight" />
             <asp:BoundField DataField="Accommodation" HeaderText="Accommodation" SortExpression="Accommodation" />
