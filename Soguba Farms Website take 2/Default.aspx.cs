@@ -145,6 +145,7 @@ namespace Soguba_Farms_Website_take_2
                 catch(Exception ex)
                 {
                     Response.Write("<script>alert('Please check your server connection and try again');</script>");
+                    Console.WriteLine(ex.Message);
                 }
                 return status;
             }
