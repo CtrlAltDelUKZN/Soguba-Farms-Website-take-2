@@ -59,21 +59,23 @@
                         
                     </ul>
                     <ul class="navbar-nav navbar-right"> 
-                        <li class="nav-item active">
+                         <li class="nav-item active">
 
-                            <asp:LinkButton  ID="LinkButton1" runat="server">&nbsp User Login &nbsp</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton3" runat="server">&nbsp Hello &nbsp&nbsp&nbsp&nbsp</asp:LinkButton>
 
                         </li>
+                         
                          <li class="nav-item active">
 
                             <asp:LinkButton ID="LinkButton2" runat="server">&nbsp User Log out &nbsp</asp:LinkButton>
 
                         </li>
-                         <li class="nav-item active">
+                        <li class="nav-item active">
+                            <asp:Button ForeColor="White" BackColor="#FD6102"  ID="Button1" runat="server" Text="Log out" BorderStyle="Solid" BorderWidth="0" PostBackUrl="~/Default.aspx" />
 
-                            <asp:LinkButton ID="LinkButton3" runat="server">&nbsp Hello User &nbsp</asp:LinkButton>
 
                         </li>
+                         
                     </ul>
                 </div>
                 

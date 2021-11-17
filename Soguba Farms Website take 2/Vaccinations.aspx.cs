@@ -11,12 +11,16 @@ namespace Soguba_Farms_Website_take_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["status"].ToString() != "go")
+            if (Session["Username"] == null)
             {
-           
+
                 Response.Redirect("Default.aspx");
             }
-            
+            if (Session["Pass"].ToString() == "Staff")
+            {
+                Response.Redirect("Notifications.aspx");
+            }
+
         }
     }
     }

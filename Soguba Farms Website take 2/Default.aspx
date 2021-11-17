@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Soguba_Farms_Website_take_2._Default" %>
 
-
-
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <style>
 
@@ -10,9 +7,15 @@
 
 
  background-image:url(Img/background.png)}
+        .auto-style1 {
+            font-weight: normal;
+        }
+        .auto-style2 {
+            height: 14px;
+        }
     </style>
     <div>
-        <asp:Login ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop">
+        <asp:Login ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop" OnAuthenticate="Login1_Authenticate">
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
             <LayoutTemplate>
                 <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
@@ -20,7 +23,7 @@
                         <td>
                             <table cellpadding="0">
                                 <tr>
-                                    <td align="center" colspan="2">WELCOME</td>
+                                    <td align="center" colspan="2" class="auto-style1"><strong>WELCOME</strong></td>
                                 </tr>
                                 <tr>
                                     <td align="right">
@@ -46,8 +49,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="center" colspan="2" style="color:Red;">
-                                        <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                    <td align="center" colspan="2" style="color:Red;" class="auto-style2">
+                                        <asp:Literal ID="FailureText" runat="server" EnableViewState="False" Text=""></asp:Literal>
                                     </td>
                                 </tr>
                                 <tr>
@@ -66,12 +69,11 @@
         </asp:Login>
          
 
-    </div>
+    </div  >
 
 
-   <div class="backimg">
-
-
+   <div >
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     
    </div>
 
 </asp:Content>
