@@ -7,13 +7,14 @@
     </div>
     <div>
     </div>
-    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="600px">
-        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px" BorderStyle="Solid" CellSpacing="1" SelectedDate="11/18/2021 09:57:30">
+        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
+        <DayStyle BackColor="#CCCCCC" />
+        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
         <OtherMonthDayStyle ForeColor="#999999" />
         <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-        <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-        <TodayDayStyle BackColor="#CCCCCC" />
+        <TitleStyle BackColor="#333399" Font-Bold="True" Font-Size="12pt" ForeColor="White" BorderStyle="Solid" Height="12pt" />
+        <TodayDayStyle BackColor="#999999" ForeColor="White" />
     </asp:Calendar>
     <div style="height: 40px">
     </div>

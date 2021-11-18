@@ -11,7 +11,7 @@ namespace Soguba_Farms_Website_take_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Calendar1.SelectedDate = DateTime.Today;
         }
 
         protected void Pigs_SelectedIndexChanged(object sender, EventArgs e)
