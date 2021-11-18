@@ -7,6 +7,15 @@
         try
         {
             SqlServicingData.Insert();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
+        try
+        {
             SqlNotifications.Insert();
         }
         catch (Exception)
@@ -135,7 +144,7 @@
                 <asp:Parameter DefaultValue="Servicing" Name="Description" Type="String" />
                 <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:Parameter DefaultValue="0" Name="TaskComplete" Type="Boolean" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="" Name="TaskComplete" PropertyName="Checked" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter DbType="Date" Name="Date" />
@@ -156,7 +165,7 @@
                 <asp:Parameter DefaultValue="Farrowing" Name="Description" Type="String" />
                 <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
                 <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:Parameter DefaultValue="0" Name="TaskComplete" Type="Boolean" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="0" Name="TaskComplete" PropertyName="Checked" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter DbType="Date" Name="Date" />
@@ -205,7 +214,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [LitterID], [Successful], [ExpectedDate]) VALUES (@BoarID, @SowID, @StaffID, @Date, @LitterID, @Successful, @ExpectedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
+        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [Successful]) VALUES (@BoarID, @SowID, @StaffID, @Date, @Successful)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
             <DeleteParameters>
                 <asp:Parameter Name="original_ServiceID" Type="Int32" />
                 <asp:Parameter Name="original_BoarID" Type="Int32" />
