@@ -7,6 +7,7 @@
         <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
         <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnEdit_Click" />
         <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True"></asp:TextBox>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div></div>

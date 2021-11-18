@@ -24,7 +24,7 @@ namespace Soguba_Farms_Website_take_2
             catch (Exception)
             {
 
-                throw;
+                lblError.Text = "Insert Error. Check you entered all the info correctly";
             }
         }
 
@@ -37,7 +37,7 @@ namespace Soguba_Farms_Website_take_2
             catch (Exception)
             {
 
-                throw;
+                lblError.Text = "Update Error. Check you entered all the info correctly";
             }
         }
 
