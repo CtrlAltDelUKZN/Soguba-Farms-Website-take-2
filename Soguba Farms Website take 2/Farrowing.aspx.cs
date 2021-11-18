@@ -36,14 +36,19 @@ namespace Soguba_Farms_Website_take_2
             }
             catch (Exception)
             {
-
                 lblError.Text = "Update Error. Check you entered all the info correctly";
+                //throw;
             }
         }
 
         protected void ddlLitID_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblFarrowID.Text = GridView1.SelectedRow.Cells[1].Text.ToString();
         }
     }
 }
