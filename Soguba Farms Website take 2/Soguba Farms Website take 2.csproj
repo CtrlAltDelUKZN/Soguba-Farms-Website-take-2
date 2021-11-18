@@ -190,8 +190,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imgs\background.png" />
-    <Content Include="LoginForm.aspx" />
+    <Content Include="About.aspx" />
+    <Content Include="Crystal Reports.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="Pigs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -258,12 +258,12 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="LoginForm.aspx.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="Crystal Reports.aspx.cs">
+      <DependentUpon>Crystal Reports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginForm.aspx.designer.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="Crystal Reports.aspx.designer.cs">
+      <DependentUpon>Crystal Reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notifications.aspx.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>

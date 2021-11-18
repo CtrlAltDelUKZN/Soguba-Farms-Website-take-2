@@ -7,11 +7,12 @@
         try
         {
             SqlServicingData.Insert();
+            lblError.Text = "Successful Insert";
         }
         catch (Exception)
         {
 
-            throw;
+            lblError.Text = "Insert Error. Check you entered all the info correctly";
         }
 
         try
@@ -21,7 +22,6 @@
         catch (Exception)
         {
 
-            throw;
         }
     }
 
@@ -33,11 +33,12 @@
             {
                 SQLCreateLitter.Insert();
                 SqlFarrowNotification.Insert();
+                lblError.Text = "Successful Edit";
             }
             catch (Exception)
             {
 
-                throw;
+            lblError.Text = "Update Error. Check you entered all the info correctly";
             }
         }
         SqlServicingData.Update();
@@ -68,6 +69,7 @@
         <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
         <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div style ="width: 25%; float: left; ">
@@ -95,7 +97,7 @@
     </div>
             
     <div style ="width: 35%; float: left; ">
-        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="160px" NextPrevFormat="ShortMonth" Width="330px">
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="160px" NextPrevFormat="ShortMonth" Width="330px" SelectedDate="2021-11-18">
             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
             <DayStyle BackColor="#CCCCCC" />
             <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />

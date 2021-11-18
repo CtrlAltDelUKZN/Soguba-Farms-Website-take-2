@@ -36,10 +36,19 @@ namespace Soguba_Farms_Website_take_2
                 rbSex.SelectedIndex = 0;
             }
             //Breed Switch Statement
+            switch (Pigs.SelectedRow.Cells[3].Text.ToString())
+            {
+                case "B35":
+                    //ddlBreed.Items.IndexOf("B35");
+                    break;
+            }
+            //Accomodation Switch
+
+            //Status Switch
 
             //Calender
            string date = Pigs.SelectedRow.Cells[4].Text.ToString();
-            lblDate.Text = date;
+           lblDate.Text = date;
            Calendar1.SelectedDate = Convert.ToDateTime(date);
 
             string birthWeight = Pigs.SelectedRow.Cells[5].Text.ToString();
@@ -51,12 +60,30 @@ namespace Soguba_Farms_Website_take_2
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            SqlDataSource1.Insert();
+            try
+            {
+                SqlDataSource1.Insert();
+                lblError.Text = "Successful Insert";
+            }
+            catch (Exception)
+            {
+                lblError.Text = "Insert Error. Check you entered all the info correctly";
+                //throw;
+            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            SqlDataSource1.Update();
+            try
+            {
+                SqlDataSource1.Update();
+                lblError.Text = "Successful Edit";
+            }
+            catch (Exception)
+            {
+                lblError.Text = "Update Error. Check you entered all the info correctly";
+                //throw;
+            }
         }
     }
 }

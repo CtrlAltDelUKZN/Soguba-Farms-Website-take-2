@@ -4,12 +4,30 @@
 
     protected void btnInsert_Click(object sender, EventArgs e)
     {
-        SqlWeaning.Insert();
+        try
+        {
+            SqlWeaning.Insert();
+            lblError.Text = "Successful Insert";
+        }
+        catch (Exception)
+        {
+
+            lblError.Text = "Insert Error. Check you entered all the info correctly";
+        }
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        SqlWeaning.Update();
+        try
+        {
+            SqlWeaning.Update();
+            lblError.Text = "Successful Edit";
+        }
+        catch (Exception)
+        {
+
+            lblError.Text = "Update Error. Check you entered all the info correctly";
+        }
     }
 
     protected void ddlLit_SelectedIndexChanged(object sender, EventArgs e)
@@ -26,6 +44,7 @@
     <div style ="width: 45%; float: left; ">
         <asp:Button ID="btnInsert" runat="server" Text="Insert" OnClick="btnInsert_Click" />
         <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div style ="width: 45%; float: left; "></div>
@@ -50,7 +69,15 @@
     </div>
 
     <div style ="width: 45%; float: left; ">
-        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px" SelectedDate="11/18/2021 09:56:23">
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
+            <DayStyle BackColor="#CCCCCC" />
+            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" />
+            <TodayDayStyle BackColor="#999999" ForeColor="White" />
+        </asp:Calendar>
     </div>
 
     <div style="width: 45%; float: left; ">

@@ -57,6 +57,7 @@
                         <li><a runat="server" href="~/Farrowing">Farrowing</a></li>
                         <li><a runat="server" href="~/Servicing">Servicing</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Crystal Reports">Report</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-right"> 
                          <li class="nav-item active">
