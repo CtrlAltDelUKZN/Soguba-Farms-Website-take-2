@@ -4,14 +4,41 @@
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        SqlServicingData.Insert();
+        try
+        {
+            SqlServicingData.Insert();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
+        try
+        {
+            SqlNotifications.Insert();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         if (cbSuccess.Checked)
         {
-            SQLCreateLitter.Insert();
+            try
+            {
+                SQLCreateLitter.Insert();
+                SqlFarrowNotification.Insert();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         SqlServicingData.Update();
     }
@@ -108,6 +135,48 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
+        <asp:SqlDataSource ID="SqlNotifications" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Notifications] WHERE [NoteID] = @NoteID" InsertCommand="INSERT INTO [Notifications] ([Date], [Description], [StaffID], [PigID], [TaskComplete]) VALUES (@Date, @Description, @StaffID, @PigID, @TaskComplete)" SelectCommand="SELECT * FROM [Notifications]" UpdateCommand="UPDATE [Notifications] SET [Date] = @Date, [Description] = @Description, [StaffID] = @StaffID, [PigID] = @PigID, [TaskComplete] = @TaskComplete WHERE [NoteID] = @NoteID">
+            <DeleteParameters>
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:Parameter DefaultValue="Servicing" Name="Description" Type="String" />
+                <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="" Name="TaskComplete" PropertyName="Checked" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter DbType="Date" Name="Date" />
+                <asp:Parameter Name="Description" Type="String" />
+                <asp:Parameter Name="StaffID" Type="Int32" />
+                <asp:Parameter Name="PigID" Type="Int32" />
+                <asp:Parameter Name="TaskComplete" Type="Boolean" />
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlFarrowNotification" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Notifications] WHERE [NoteID] = @NoteID" InsertCommand="INSERT INTO [Notifications] ([Date], [Description], [StaffID], [PigID], [TaskComplete]) VALUES (@Date, @Description, @StaffID, @PigID, @TaskComplete)" SelectCommand="SELECT * FROM [Notifications]" UpdateCommand="UPDATE [Notifications] SET [Date] = @Date, [Description] = @Description, [StaffID] = @StaffID, [PigID] = @PigID, [TaskComplete] = @TaskComplete WHERE [NoteID] = @NoteID">
+            <DeleteParameters>
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter ControlID="Calendar2" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:Parameter DefaultValue="Farrowing" Name="Description" Type="String" />
+                <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="0" Name="TaskComplete" PropertyName="Checked" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter DbType="Date" Name="Date" />
+                <asp:Parameter Name="Description" Type="String" />
+                <asp:Parameter Name="StaffID" Type="Int32" />
+                <asp:Parameter Name="PigID" Type="Int32" />
+                <asp:Parameter Name="TaskComplete" Type="Boolean" />
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
         <asp:SqlDataSource ID="SqlGetLitID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [LitterID] FROM [Litter] WHERE ([ServiceID] = @ServiceID)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="lblServiceID" Name="ServiceID" PropertyName="Text" Type="Int32" />
@@ -145,7 +214,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [LitterID], [Successful], [ExpectedDate]) VALUES (@BoarID, @SowID, @StaffID, @Date, @LitterID, @Successful, @ExpectedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
+        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [Successful]) VALUES (@BoarID, @SowID, @StaffID, @Date, @Successful)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
             <DeleteParameters>
                 <asp:Parameter Name="original_ServiceID" Type="Int32" />
                 <asp:Parameter Name="original_BoarID" Type="Int32" />

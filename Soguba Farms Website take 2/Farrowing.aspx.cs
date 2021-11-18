@@ -28,7 +28,7 @@ namespace Soguba_Farms_Website_take_2
             try
             {
                 SqlFarrowing.Insert();
-                SqlNotifications.Insert();
+                //SqlNotifications.Insert();
             }
             catch (Exception)
             {
