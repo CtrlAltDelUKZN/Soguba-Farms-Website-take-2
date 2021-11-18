@@ -13,5 +13,37 @@ namespace Soguba_Farms_Website_take_2
         {
 
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlFarrowing.Insert();
+                SqlNotifications.Insert();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlFarrowing.Update();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void ddlLitID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

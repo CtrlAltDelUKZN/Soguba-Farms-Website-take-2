@@ -32,7 +32,7 @@
 
     <div style ="width: 45%; float: left; height: 20px;">
         <asp:DropDownList ID="ddlLit" runat="server" DataSourceID="SqlLitID" DataTextField="LitterID" DataValueField="LitterID" OnSelectedIndexChanged="ddlLit_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-        <asp:DropDownList ID="ddlSow" runat="server" DataSourceID="SqlSowID" DataTextField="PigID" DataValueField="PigID"></asp:DropDownList>
+        <asp:DropDownList ID="ddlSow" runat="server" DataSourceID="SqlSowID" DataTextField="PigID" DataValueField="PigID" AutoPostBack="True"></asp:DropDownList>
         <asp:TextBox ID="txtNum" runat="server"></asp:TextBox>
         <asp:TextBox ID="txtAvgWeight" runat="server"></asp:TextBox>
         <asp:SqlDataSource ID="SqlSowID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [PigID] FROM [Pig] WHERE ([Sex] = @Sex)">
