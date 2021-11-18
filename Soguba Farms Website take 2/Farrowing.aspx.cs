@@ -50,6 +50,13 @@ namespace Soguba_Farms_Website_take_2
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblFarrowID.Text = GridView1.SelectedRow.Cells[1].Text.ToString();
+            txtWeight.Text = GridView1.SelectedRow.Cells[3].Text.ToString();
+            string date = GridView1.SelectedRow.Cells[4].Text.ToString();
+            Calendar1.SelectedDate = Convert.ToDateTime(date);
+            txtLive.Text = GridView1.SelectedRow.Cells[5].Text.ToString();
+            txtStill.Text = GridView1.SelectedRow.Cells[6].Text.ToString();
+            txtWeak.Text = GridView1.SelectedRow.Cells[7].Text.ToString();
+            txtMummified.Text = GridView1.SelectedRow.Cells[8].Text.ToString();
         }
     }
 }
