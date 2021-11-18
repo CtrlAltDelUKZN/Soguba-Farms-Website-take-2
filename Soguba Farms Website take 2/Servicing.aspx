@@ -4,14 +4,32 @@
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        SqlServicingData.Insert();
+        try
+        {
+            SqlServicingData.Insert();
+            SqlNotifications.Insert();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         if (cbSuccess.Checked)
         {
-            SQLCreateLitter.Insert();
+            try
+            {
+                SQLCreateLitter.Insert();
+                SqlFarrowNotification.Insert();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         SqlServicingData.Update();
     }
@@ -105,6 +123,48 @@
                 <asp:Parameter Name="original_ServiceID" Type="Int32" />
                 <asp:Parameter Name="original_CurrentAvgWeight" Type="Double" />
                 <asp:Parameter Name="original_NumberOfPiglets" Type="Int16" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlNotifications" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Notifications] WHERE [NoteID] = @NoteID" InsertCommand="INSERT INTO [Notifications] ([Date], [Description], [StaffID], [PigID], [TaskComplete]) VALUES (@Date, @Description, @StaffID, @PigID, @TaskComplete)" SelectCommand="SELECT * FROM [Notifications]" UpdateCommand="UPDATE [Notifications] SET [Date] = @Date, [Description] = @Description, [StaffID] = @StaffID, [PigID] = @PigID, [TaskComplete] = @TaskComplete WHERE [NoteID] = @NoteID">
+            <DeleteParameters>
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:Parameter DefaultValue="Servicing" Name="Description" Type="String" />
+                <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="0" Name="TaskComplete" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter DbType="Date" Name="Date" />
+                <asp:Parameter Name="Description" Type="String" />
+                <asp:Parameter Name="StaffID" Type="Int32" />
+                <asp:Parameter Name="PigID" Type="Int32" />
+                <asp:Parameter Name="TaskComplete" Type="Boolean" />
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlFarrowNotification" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Notifications] WHERE [NoteID] = @NoteID" InsertCommand="INSERT INTO [Notifications] ([Date], [Description], [StaffID], [PigID], [TaskComplete]) VALUES (@Date, @Description, @StaffID, @PigID, @TaskComplete)" SelectCommand="SELECT * FROM [Notifications]" UpdateCommand="UPDATE [Notifications] SET [Date] = @Date, [Description] = @Description, [StaffID] = @StaffID, [PigID] = @PigID, [TaskComplete] = @TaskComplete WHERE [NoteID] = @NoteID">
+            <DeleteParameters>
+                <asp:Parameter Name="NoteID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter ControlID="Calendar2" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:Parameter DefaultValue="Farrowing" Name="Description" Type="String" />
+                <asp:ControlParameter ControlID="ddlStaff" DefaultValue="" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlSow" Name="PigID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="0" Name="TaskComplete" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter DbType="Date" Name="Date" />
+                <asp:Parameter Name="Description" Type="String" />
+                <asp:Parameter Name="StaffID" Type="Int32" />
+                <asp:Parameter Name="PigID" Type="Int32" />
+                <asp:Parameter Name="TaskComplete" Type="Boolean" />
+                <asp:Parameter Name="NoteID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
