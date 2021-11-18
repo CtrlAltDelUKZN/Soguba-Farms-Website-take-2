@@ -245,6 +245,7 @@
     <asp:GridView ID = "Pigs" runat = "server" AutoGenerateColumns="False" DataKeyNames="PigID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1263px" OnSelectedIndexChanged="Pigs_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
+            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="PigID" HeaderText="PigID" InsertVisible="False" ReadOnly="True" SortExpression="PigID" />
             <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
             <asp:BoundField DataField="Breed" HeaderText="Breed" SortExpression="Breed" />

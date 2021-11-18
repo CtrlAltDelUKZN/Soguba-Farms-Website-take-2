@@ -26,6 +26,15 @@ namespace Soguba_Farms_Website_take_2
                 rbSex.SelectedIndex = 0;
             }
             //Breed Switch Statement
+            switch (Pigs.SelectedRow.Cells[3].Text.ToString())
+            {
+                case "B35":
+                    //ddlBreed.Items.IndexOf("B35");
+                    break;
+            }
+            //Accomodation Switch
+
+            //Status Switch
 
             //Calender
            string date = Pigs.SelectedRow.Cells[4].Text.ToString();
