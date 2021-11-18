@@ -53,6 +53,7 @@ namespace Soguba_Farms_Website_take_2
             try
             {
                 SqlDataSource1.Insert();
+                lblError.Text = "Successful Insert";
             }
             catch (Exception)
             {
@@ -66,6 +67,7 @@ namespace Soguba_Farms_Website_take_2
             try
             {
                 SqlDataSource1.Update();
+                lblError.Text = "Successful Edit";
             }
             catch (Exception)
             {

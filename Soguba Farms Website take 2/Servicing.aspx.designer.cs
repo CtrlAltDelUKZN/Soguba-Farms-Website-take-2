@@ -51,6 +51,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
         /// ddlSow control.
         /// </summary>
         /// <remarks>

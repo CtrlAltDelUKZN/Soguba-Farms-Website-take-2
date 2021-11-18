@@ -7,11 +7,12 @@
         try
         {
             SqlServicingData.Insert();
+            lblError.Text = "Successful Insert";
         }
         catch (Exception)
         {
 
-            throw;
+            lblError.Text = "Insert Error. Check you entered all the info correctly";
         }
 
         try
@@ -21,7 +22,6 @@
         catch (Exception)
         {
 
-            throw;
         }
     }
 
@@ -33,11 +33,12 @@
             {
                 SQLCreateLitter.Insert();
                 SqlFarrowNotification.Insert();
+                lblError.Text = "Successful Edit";
             }
             catch (Exception)
             {
 
-                throw;
+            lblError.Text = "Update Error. Check you entered all the info correctly";
             }
         }
         SqlServicingData.Update();
@@ -68,6 +69,7 @@
         <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
         <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div style ="width: 25%; float: left; ">

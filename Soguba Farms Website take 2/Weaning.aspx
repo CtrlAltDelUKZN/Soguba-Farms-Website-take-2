@@ -4,12 +4,30 @@
 
     protected void btnInsert_Click(object sender, EventArgs e)
     {
-        SqlWeaning.Insert();
+        try
+        {
+            SqlWeaning.Insert();
+            lblError.Text = "Successful Insert";
+        }
+        catch (Exception)
+        {
+
+            lblError.Text = "Insert Error. Check you entered all the info correctly";
+        }
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        SqlWeaning.Update();
+        try
+        {
+            SqlWeaning.Update();
+            lblError.Text = "Successful Edit";
+        }
+        catch (Exception)
+        {
+
+            lblError.Text = "Update Error. Check you entered all the info correctly";
+        }
     }
 
     protected void ddlLit_SelectedIndexChanged(object sender, EventArgs e)
@@ -26,6 +44,7 @@
     <div style ="width: 45%; float: left; ">
         <asp:Button ID="btnInsert" runat="server" Text="Insert" OnClick="btnInsert_Click" />
         <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div style ="width: 45%; float: left; "></div>
