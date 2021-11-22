@@ -15,22 +15,13 @@ namespace Soguba_Farms_Website_take_2
     {
 
         /// <summary>
-        /// btnAdd control.
+        /// Pigs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// txtSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.GridView Pigs;
 
         /// <summary>
         /// btnUpdate control.
@@ -49,6 +40,33 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+
+        /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
         /// DetailsView1 control.
@@ -96,6 +114,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.RadioButtonList rbSex;
 
         /// <summary>
+        /// lblBreed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBreed;
+
+        /// <summary>
         /// ddlBreed control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBreed;
+
+        /// <summary>
+        /// lblBirthWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBirthWeight;
 
         /// <summary>
         /// txtBirthWeight control.
@@ -114,6 +150,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtBirthWeight;
 
         /// <summary>
+        /// lblCurrWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCurrWeight;
+
+        /// <summary>
         /// txtCurrWeight control.
         /// </summary>
         /// <remarks>
@@ -123,6 +168,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtCurrWeight;
 
         /// <summary>
+        /// lblAccomadation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccomadation;
+
+        /// <summary>
         /// ddlAccomodation control.
         /// </summary>
         /// <remarks>
@@ -130,6 +184,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAccomodation;
+
+        /// <summary>
+        /// lblLitterID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLitterID;
 
         /// <summary>
         /// ddlLitter control.
@@ -175,14 +238,5 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
-
-        /// <summary>
-        /// Pigs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Pigs;
     }
 }

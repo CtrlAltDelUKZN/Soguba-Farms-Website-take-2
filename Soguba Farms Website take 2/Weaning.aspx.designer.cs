@@ -15,6 +15,24 @@ namespace Soguba_Farms_Website_take_2
     {
 
         /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlWeaning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWeaning;
+
+        /// <summary>
         /// btnInsert control.
         /// </summary>
         /// <remarks>
@@ -42,6 +60,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
+        /// lblLitterID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLitterID;
+
+        /// <summary>
         /// ddlLit control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLit;
+
+        /// <summary>
+        /// lblSowID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSowID;
 
         /// <summary>
         /// ddlSow control.
@@ -60,6 +96,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.DropDownList ddlSow;
 
         /// <summary>
+        /// lblNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNum;
+
+        /// <summary>
         /// txtNum control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNum;
+
+        /// <summary>
+        /// lblAvgWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAvgWeight;
 
         /// <summary>
         /// txtAvgWeight control.
@@ -112,24 +166,6 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// SqlWeaning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlWeaning;
 
         /// <summary>
         /// GridView2 control.

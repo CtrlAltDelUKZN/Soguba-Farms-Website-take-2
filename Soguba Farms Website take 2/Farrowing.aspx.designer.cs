@@ -15,6 +15,24 @@ namespace Soguba_Farms_Website_take_2
     {
 
         /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlFarrowing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlFarrowing;
+
+        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEdit;
+
+        /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
 
         /// <summary>
         /// txtSearch control.
@@ -96,6 +123,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlLitD;
 
         /// <summary>
+        /// lblweight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblweight;
+
+        /// <summary>
         /// txtWeight control.
         /// </summary>
         /// <remarks>
@@ -103,6 +139,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWeight;
+
+        /// <summary>
+        /// lblLive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLive;
 
         /// <summary>
         /// txtLive control.
@@ -114,6 +159,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtLive;
 
         /// <summary>
+        /// lblStill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStill;
+
+        /// <summary>
         /// txtStill control.
         /// </summary>
         /// <remarks>
@@ -123,6 +177,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.TextBox txtStill;
 
         /// <summary>
+        /// lblWeak control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWeak;
+
+        /// <summary>
         /// txtWeak control.
         /// </summary>
         /// <remarks>
@@ -130,6 +193,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWeak;
+
+        /// <summary>
+        /// lblMummified control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMummified;
 
         /// <summary>
         /// txtMummified control.
@@ -175,23 +247,5 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// SqlFarrowing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlFarrowing;
     }
 }

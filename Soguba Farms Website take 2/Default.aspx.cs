@@ -17,7 +17,7 @@ namespace Soguba_Farms_Website_take_2
         string connectionString = ConfigurationManager.ConnectionStrings["group25ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           // Calendar1.SelectedDate = DateTime.Today;
             if (Session["Username"] != null && Session["Pass"] != null)
             {
                 Session.Abandon();

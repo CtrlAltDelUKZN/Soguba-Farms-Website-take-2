@@ -1,16 +1,43 @@
 ﻿<%@ Page Title="Pigs" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pigs.aspx.cs" Inherits="Soguba_Farms_Website_take_2.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <br />
+    <br />
     <h2><%: Title %>.</h2>
 
-    
-    <div style ="width: 45%; float: left; ">
+     
 
-        <asp:Button ID="btnAdd" runat="server" BorderStyle="Outset" Text="Insert" OnClick="btnAdd_Click" />
+    <body>
 
-        <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True"></asp:TextBox>
-
-    </div>
+        <div>
+            <asp:GridView ID = "Pigs" runat = "server" AutoGenerateColumns="False" DataKeyNames="PigID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1263px" OnSelectedIndexChanged="Pigs_SelectedIndexChanged">
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        <Columns>
+            <asp:CommandField ShowSelectButton="True" />
+            <asp:BoundField DataField="PigID" HeaderText="PigID" InsertVisible="False" ReadOnly="True" SortExpression="PigID" />
+            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
+            <asp:BoundField DataField="Breed" HeaderText="Breed" SortExpression="Breed" />
+            <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" />
+            <asp:BoundField DataField="BirthWeight" HeaderText="BirthWeight" SortExpression="BirthWeight" />
+            <asp:BoundField DataField="CurrentWeight" HeaderText="CurrentWeight" SortExpression="CurrentWeight" />
+            <asp:BoundField DataField="Accommodation" HeaderText="Accommodation" SortExpression="Accommodation" />
+            <asp:BoundField DataField="LitterID" HeaderText="LitterID" SortExpression="LitterID" />
+            <asp:BoundField DataField="CauseOfDeath" HeaderText="Status" SortExpression="CauseOfDeath" />
+        </Columns>
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+    </asp:GridView>
+            <br />
+        </div>
 
     <div style ="width: 50%; float: left; ">
 
@@ -20,12 +47,21 @@
 
     </div>
 
+         <div style ="width: 45%; float: left; ">
+
+        <asp:Button ID="btnAdd" runat="server" BorderStyle="Outset" Text="Insert" OnClick="btnAdd_Click" />
+             <br />
+             <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
+             &nbsp  &nbsp  &nbsp
+        <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True"></asp:TextBox>
+
+    </div>
+        <br />
+        <br />
     <div style ="width: 45%; float: left; height: 202px;">
 
-        <b>
-            Pig Details
-        </b>
-
+        <h4>Pig Details</h4>
+         
         <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="PigID" DataSourceID="SqlPigDetails" ForeColor="#333333" GridLines="None" Height="50px" Width="352px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
@@ -200,23 +236,32 @@
  
     </div>
 
-    <div style ="width: 10%; float: left; height: 198px;">
+    <div style ="width: 45%; float: left; height: 198px;">
 
         <asp:RadioButtonList ID="rbSex" runat="server">
             <asp:ListItem Selected="True" Value="F">Female</asp:ListItem>
             <asp:ListItem Value="M">Male</asp:ListItem>
         </asp:RadioButtonList>
+        <asp:Label ID="lblBreed" runat="server" Text="Breed"></asp:Label>
         <asp:DropDownList ID="ddlBreed" runat="server">
             <asp:ListItem>B35</asp:ListItem>
             <asp:ListItem>D25</asp:ListItem>
             <asp:ListItem>A6</asp:ListItem>
         </asp:DropDownList>
+        <br />
+         <asp:Label ID="lblBirthWeight" runat="server" Text="Birth Weight"></asp:Label>
         <asp:TextBox ID="txtBirthWeight" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblCurrWeight" runat="server" Text="Current Weight"></asp:Label>
         <asp:TextBox ID="txtCurrWeight" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblAccomadation" runat="server" Text="Accommodation"></asp:Label>
         <asp:DropDownList ID="ddlAccomodation" runat="server">
             <asp:ListItem>Birthing House</asp:ListItem>
             <asp:ListItem>Breeding Shelter</asp:ListItem>
         </asp:DropDownList>
+        <br />
+        <asp:Label ID="lblLitterID" runat="server" Text="Litter ID"></asp:Label>
         <asp:DropDownList ID="ddlLitter" runat="server" DataSourceID="SqlDDLLitterID" DataTextField="LitterID" DataValueField="LitterID">
         </asp:DropDownList>
         <asp:DropDownList ID="ddlStatus" runat="server">
@@ -226,12 +271,19 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDDLLitterID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [LitterID] FROM [Litter]"></asp:SqlDataSource>
 
-    </div>
+        <br />
+        <br />
+       </div>
 
-    <div style ="width: 40%; float: right; height: 192px;">
+    
 
+        
+
+    <div style ="width: 40%; float:none; height: 192px;">
+
+        <br />
         <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
-        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="149px" NextPrevFormat="ShortMonth" Width="413px">
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="149px" NextPrevFormat="ShortMonth" Width="769px">
             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
             <DayStyle BackColor="#CCCCCC" />
             <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
@@ -241,33 +293,18 @@
             <TodayDayStyle BackColor="#999999" ForeColor="White" />
         </asp:Calendar>
 
+
     </div>
 
+
+    </body>
+    
+   
+    
+    
+   
+    
  
-    <asp:GridView ID = "Pigs" runat = "server" AutoGenerateColumns="False" DataKeyNames="PigID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1263px" OnSelectedIndexChanged="Pigs_SelectedIndexChanged">
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <Columns>
-            <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="PigID" HeaderText="PigID" InsertVisible="False" ReadOnly="True" SortExpression="PigID" />
-            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
-            <asp:BoundField DataField="Breed" HeaderText="Breed" SortExpression="Breed" />
-            <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" />
-            <asp:BoundField DataField="BirthWeight" HeaderText="BirthWeight" SortExpression="BirthWeight" />
-            <asp:BoundField DataField="CurrentWeight" HeaderText="CurrentWeight" SortExpression="CurrentWeight" />
-            <asp:BoundField DataField="Accommodation" HeaderText="Accommodation" SortExpression="Accommodation" />
-            <asp:BoundField DataField="LitterID" HeaderText="LitterID" SortExpression="LitterID" />
-            <asp:BoundField DataField="CauseOfDeath" HeaderText="Status" SortExpression="CauseOfDeath" />
-        </Columns>
-        <EditRowStyle BackColor="#999999" />
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-    </asp:GridView>
+    
 
     </asp:Content>

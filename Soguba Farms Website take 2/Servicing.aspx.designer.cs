@@ -15,6 +15,24 @@ namespace Soguba_Farms_Website_take_2
     {
 
         /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlServicingData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlServicingData;
+
+        /// <summary>
         /// lblServiceID control.
         /// </summary>
         /// <remarks>
@@ -42,6 +60,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.Button btnEdit;
 
         /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
+
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// lblSowID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSowID;
 
         /// <summary>
         /// ddlSow control.
@@ -78,6 +114,15 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.SqlDataSource SqlSowID;
 
         /// <summary>
+        /// lblPigID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPigID;
+
+        /// <summary>
         /// ddlBoar control.
         /// </summary>
         /// <remarks>
@@ -94,6 +139,15 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlBoar;
+
+        /// <summary>
+        /// lblStaffID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStaffID;
 
         /// <summary>
         /// ddlStaff control.
@@ -121,15 +175,6 @@ namespace Soguba_Farms_Website_take_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbSuccess;
-
-        /// <summary>
-        /// Calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
         /// SQLCreateLitter control.
@@ -186,21 +231,12 @@ namespace Soguba_Farms_Website_take_2
         protected global::System.Web.UI.WebControls.Calendar Calendar2;
 
         /// <summary>
-        /// GridView1 control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// SqlServicingData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlServicingData;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
     }
 }

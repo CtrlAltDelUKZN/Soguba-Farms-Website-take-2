@@ -62,18 +62,85 @@
 </script>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <br />
+    <br />
     <h2><%: Title %>.</h2>
-  
-    <div>
+
+    <body>
+
+        <div>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ServiceID" DataSourceID="SqlServicingData" ForeColor="#333333" GridLines="None" Width="734px" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:CommandField ShowSelectButton="True" />
+                <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" InsertVisible="False" ReadOnly="True" SortExpression="ServiceID" />
+                <asp:BoundField DataField="BoarID" HeaderText="BoarID" SortExpression="BoarID" />
+                <asp:BoundField DataField="SowID" HeaderText="SowID" SortExpression="SowID" />
+                <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
+                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                <asp:BoundField DataField="LitterID" HeaderText="LitterID" SortExpression="LitterID" />
+                <asp:CheckBoxField DataField="Successful" HeaderText="Successful" SortExpression="Successful" />
+                <asp:BoundField DataField="ExpectedDate" HeaderText="ExpectedDate" SortExpression="ExpectedDate" />
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [Successful]) VALUES (@BoarID, @SowID, @StaffID, @Date, @Successful)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
+            <DeleteParameters>
+                <asp:Parameter Name="original_ServiceID" Type="Int32" />
+                <asp:Parameter Name="original_BoarID" Type="Int32" />
+                <asp:Parameter Name="original_SowID" Type="Int32" />
+                <asp:Parameter Name="original_StaffID" Type="Int32" />
+                <asp:Parameter DbType="Date" Name="original_Date" />
+                <asp:Parameter Name="original_LitterID" Type="Int32" />
+                <asp:Parameter Name="original_Successful" Type="Boolean" />
+                <asp:Parameter DbType="Date" Name="original_ExpectedDate" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
+                <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" DefaultValue="" />
+                <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" DefaultValue="" />
+                <asp:ControlParameter ControlID="ddlLitID" DefaultValue="0" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="" Name="Successful" PropertyName="Checked" Type="Boolean" />
+                <asp:ControlParameter ControlID="Calendar2" DbType="Date" Name="ExpectedDate" PropertyName="SelectedDate" DefaultValue="" />
+                <asp:ControlParameter ControlID="lblServiceID" Name="original_ServiceID" PropertyName="Text" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+    </div>
+
+        <br />
+         <div>
         <asp:Label ID="lblServiceID" runat="server" Text="0"></asp:Label>
         <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAdd_Click" />
         <asp:Button ID="btnEdit" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
+        <br />
+        <br />
+        <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
+         &nbsp &nbsp &nbsp
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
         <asp:Label ID="lblError" runat="server"></asp:Label>
     </div>
 
     <div style ="width: 25%; float: left; ">
-
+        <asp:Label ID="lblSowID" runat="server" Text="Sow ID"></asp:Label>
+        &nbsp &nbsp &nbsp
         <asp:DropDownList ID="ddlSow" runat="server" DataSourceID="SqlSowID" DataTextField="PigID" DataValueField="PigID">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlSowID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [PigID] FROM [Pig] WHERE ([Sex] = @Sex)">
@@ -81,6 +148,9 @@
                 <asp:Parameter DefaultValue="F" Name="Sex" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <br />
+        <asp:Label ID="lblPigID" runat="server" Text="Boar ID"></asp:Label>
+        &nbsp &nbsp &nbsp
         <asp:DropDownList ID="ddlBoar" runat="server" DataSourceID="SqlBoar" DataTextField="PigID" DataValueField="PigID">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlBoar" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [PigID] FROM [Pig] WHERE ([Sex] = @Sex)">
@@ -88,25 +158,18 @@
                 <asp:Parameter DefaultValue="M" Name="Sex" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <br />
+        <asp:Label ID="lblStaffID" runat="server" Text="Staff ID"></asp:Label>
+        &nbsp &nbsp &nbsp
         <asp:DropDownList ID="ddlStaff" runat="server" DataSourceID="SqlStaffID" DataTextField="StaffID" DataValueField="StaffID">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlStaffID" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" SelectCommand="SELECT [StaffID] FROM [Employees]"></asp:SqlDataSource>
-
+        <br />
         <asp:CheckBox ID="cbSuccess" runat="server" Text="Success" OnCheckedChanged="cbSuccess_CheckedChanged" AutoPostBack="True" />
-
+        <br />
     </div>
             
-    <div style ="width: 35%; float: left; ">
-        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="160px" NextPrevFormat="ShortMonth" Width="330px" SelectedDate="2021-11-18">
-            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
-            <DayStyle BackColor="#CCCCCC" />
-            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
-            <OtherMonthDayStyle ForeColor="#999999" />
-            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-            <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" />
-            <TodayDayStyle BackColor="#999999" ForeColor="White" />
-        </asp:Calendar>
-    </div>
+   
 
     <div style ="width: 25%; float: left; ">
 
@@ -190,61 +253,23 @@
         <asp:Calendar ID="Calendar2" runat="server" Visible="False"></asp:Calendar>
 
     </div>
-
-    <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ServiceID" DataSourceID="SqlServicingData" ForeColor="#333333" GridLines="None" Width="734px" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" InsertVisible="False" ReadOnly="True" SortExpression="ServiceID" />
-                <asp:BoundField DataField="BoarID" HeaderText="BoarID" SortExpression="BoarID" />
-                <asp:BoundField DataField="SowID" HeaderText="SowID" SortExpression="SowID" />
-                <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
-                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
-                <asp:BoundField DataField="LitterID" HeaderText="LitterID" SortExpression="LitterID" />
-                <asp:CheckBoxField DataField="Successful" HeaderText="Successful" SortExpression="Successful" />
-                <asp:BoundField DataField="ExpectedDate" HeaderText="ExpectedDate" SortExpression="ExpectedDate" />
-            </Columns>
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlServicingData" runat="server" ConnectionString="<%$ ConnectionStrings:group25ConnectionString %>" DeleteCommand="DELETE FROM [Servicing] WHERE [ServiceID] = @original_ServiceID AND [BoarID] = @original_BoarID AND [SowID] = @original_SowID AND [StaffID] = @original_StaffID AND [Date] = @original_Date AND (([LitterID] = @original_LitterID) OR ([LitterID] IS NULL AND @original_LitterID IS NULL)) AND [Successful] = @original_Successful AND (([ExpectedDate] = @original_ExpectedDate) OR ([ExpectedDate] IS NULL AND @original_ExpectedDate IS NULL))" InsertCommand="INSERT INTO [Servicing] ([BoarID], [SowID], [StaffID], [Date], [Successful]) VALUES (@BoarID, @SowID, @StaffID, @Date, @Successful)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Servicing]" UpdateCommand="UPDATE Servicing SET BoarID = @BoarID, SowID = @SowID, StaffID = @StaffID, Date = @Date, LitterID = @LitterID, Successful = @Successful, ExpectedDate = @ExpectedDate WHERE (ServiceID = @original_ServiceID)">
-            <DeleteParameters>
-                <asp:Parameter Name="original_ServiceID" Type="Int32" />
-                <asp:Parameter Name="original_BoarID" Type="Int32" />
-                <asp:Parameter Name="original_SowID" Type="Int32" />
-                <asp:Parameter Name="original_StaffID" Type="Int32" />
-                <asp:Parameter DbType="Date" Name="original_Date" />
-                <asp:Parameter Name="original_LitterID" Type="Int32" />
-                <asp:Parameter Name="original_Successful" Type="Boolean" />
-                <asp:Parameter DbType="Date" Name="original_ExpectedDate" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" />
-                <asp:ControlParameter ControlID="cbSuccess" Name="Successful" PropertyName="Checked" Type="Boolean" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:ControlParameter ControlID="ddlBoar" Name="BoarID" PropertyName="SelectedValue" Type="Int32" DefaultValue="" />
-                <asp:ControlParameter ControlID="ddlSow" Name="SowID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="ddlStaff" Name="StaffID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="Calendar1" DbType="Date" Name="Date" PropertyName="SelectedDate" DefaultValue="" />
-                <asp:ControlParameter ControlID="ddlLitID" DefaultValue="0" Name="LitterID" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="cbSuccess" DefaultValue="" Name="Successful" PropertyName="Checked" Type="Boolean" />
-                <asp:ControlParameter ControlID="Calendar2" DbType="Date" Name="ExpectedDate" PropertyName="SelectedDate" DefaultValue="" />
-                <asp:ControlParameter ControlID="lblServiceID" Name="original_ServiceID" PropertyName="Text" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
+        <br />
+         <div style ="width: 35%; float: none; ">
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="160px" NextPrevFormat="ShortMonth" Width="330px" SelectedDate="2021-11-18">
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
+            <DayStyle BackColor="#CCCCCC" />
+            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" />
+            <TodayDayStyle BackColor="#999999" ForeColor="White" />
+        </asp:Calendar>
     </div>
+
+    </body>
+  
+   
+
+    
 
     </asp:Content>

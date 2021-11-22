@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Soguba_Farms_Website_take_2.About1" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <br />
+    <br />
+    <br />
     <h1>Soguba Farms</h1>
         
 
